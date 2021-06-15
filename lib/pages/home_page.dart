@@ -29,18 +29,23 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _itemTapped,
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Blogs',
+            icon: Icon(Icons.message),
+            label: '微信',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Favorite',
+            label: '通讯录',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: '发现',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Account',
+            label: '我',
           )
         ],
       ),
