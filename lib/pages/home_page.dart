@@ -11,15 +11,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PageController _pageController = PageController();
-  List<Widget> _screens = [BlogsPage(), FavoritesPage(), AccountPage()];
-
+  List<Widget> _pages = [BlogsPage(), FavoritesPage(), AccountPage()];
+  Widget _currentBody = BlogsPage();
   int _currentIndex = 0;
-  void _onPageChanged(int index) {}
 
   void _itemTapped(int index) {
-    _pageController.jumpToPage(index);
     setState(() {
+      _currentBody = _pages[index];
       _currentIndex = index;
     });
   }
@@ -27,12 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: _screens,
-        onPageChanged: _onPageChanged,
-        physics: NeverScrollableScrollPhysics(),
-      ),
+      body: _currentBody,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _itemTapped,
