@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //body: _currentBody,
       body: PageView.builder(
         itemCount: _pages.length,
         controller: _pageController,
