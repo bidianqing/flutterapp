@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/account_page.dart';
-import 'package:myapp/pages/blogs_page.dart';
-import 'package:myapp/pages/constants.dart';
-import 'package:myapp/pages/favorites_page.dart';
-import 'package:myapp/pages/profile_page.dart';
+import 'account_page.dart';
+import 'favorites_page.dart';
+import 'profile_page.dart';
 import 'constants.dart';
+import 'conversation_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,18 +14,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Widget> _pages = [
-    BlogsPage(),
+    ConversationPage(),
     FavoritesPage(),
     AccountPage(),
     ProfilePage(),
   ];
-  Widget _currentBody = BlogsPage();
+
   int _currentIndex = 0;
+  var _pageController = PageController();
 
   void _itemTapped(int index) {
-    print(index);
     setState(() {
-      _currentBody = _pages[index];
+      _pageController.jumpToPage(index);
       _currentIndex = index;
     });
   }
@@ -34,7 +33,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _currentBody,
+      //body: _currentBody,
+      body: PageView.builder(
+        itemCount: _pages.length,
+        controller: _pageController,
+        onPageChanged: (int index) => {
+          setState(() {
+            _currentIndex = index;
+          }),
+        },
+        itemBuilder: (BuildContext context, int index) {
+          return _pages[index];
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _itemTapped,
