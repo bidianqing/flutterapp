@@ -9,16 +9,21 @@ class ConversationPage extends StatefulWidget {
   _ConversationPageState createState() => _ConversationPageState();
 }
 
-class _ConversationPageState extends State<ConversationPage> {
+class _ConversationPageState extends State<ConversationPage> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('微信'),
         centerTitle: true,
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.green,
         backwardsCompatibility: false,
-        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.yellow),
+        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.green),
       ),
       body: ListView.builder(
           itemCount: 50,

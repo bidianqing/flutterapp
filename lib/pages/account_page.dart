@@ -13,6 +13,7 @@ class _AccountPageState extends State<AccountPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Account Page'),
+        centerTitle: true,
       ),
       body: Center(
         child: Text('Account Page'),
