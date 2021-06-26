@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'blogs_page.dart';
 
 /// 会话
 class ConversationPage extends StatefulWidget {
@@ -9,7 +10,8 @@ class ConversationPage extends StatefulWidget {
   _ConversationPageState createState() => _ConversationPageState();
 }
 
-class _ConversationPageState extends State<ConversationPage> with AutomaticKeepAliveClientMixin {
+class _ConversationPageState extends State<ConversationPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -24,6 +26,16 @@ class _ConversationPageState extends State<ConversationPage> with AutomaticKeepA
         backgroundColor: Colors.green,
         backwardsCompatibility: false,
         systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.green),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) {
+              return BlogsPage();
+            },
+          ));
+        },
+        child: Icon(Icons.add),
       ),
       body: ListView.builder(
           itemCount: 50,
