@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TestPage extends StatelessWidget {
-  const TestPage({ Key? key }) : super(key: key);
+  const TestPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,12 @@ class TestPage extends StatelessWidget {
       ),
       body: Container(
         child: Center(
-          child: Text('Test Page'),
+          child: ElevatedButton(
+            child: Text('按钮'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          )
         ),
       ),
     );
