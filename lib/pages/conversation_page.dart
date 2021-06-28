@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'blogs_page.dart';
+import 'test_page.dart';
 
 /// 会话
 class ConversationPage extends StatefulWidget {
@@ -31,7 +31,7 @@ class _ConversationPageState extends State<ConversationPage>
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) {
-              return BlogsPage();
+              return TestPage();
             },
           ));
         },
