@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       title: '微信',
       theme: ThemeData(
         primarySwatch: Colors.green,
+        platform: TargetPlatform.iOS,
       ),
       home: HomePage(),
     );
